@@ -4,15 +4,15 @@ services:
     image: mysql:5.7
     container_name: mysql
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
-    restart: always
+    # restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root #设置root帐号密码
     ports:
       - 3306:3306
-    volumes:
-      - /mydata/mysql/data:/var/lib/mysql #数据文件目录挂载
-      - /mydata/mysql/conf:/etc/mysql #配置文件目录挂载
-      - /mydata/mysql/log:/var/log/mysql #日志文件目录挂载
+    # volumes:
+      # - /mydata/mysql/data:/var/lib/mysql #数据文件目录挂载
+      # - /mydata/mysql/conf:/etc/mysql #配置文件目录挂载
+      # - /mydata/mysql/log:/var/log/mysql #日志文件目录挂载
   redis:
     image: redis:7
     container_name: redis
@@ -24,10 +24,10 @@ services:
   nginx:
     image: nginx:1.22
     container_name: nginx
-    volumes:
-      - /mydata/nginx/conf:/etc/nginx #配置文件目录挂载
-      - /mydata/nginx/html:/usr/share/nginx/html #静态资源根目录挂载
-      - /mydata/nginx/logs:/var/log/nginx #日志文件目录挂载
+    # volumes:
+      # - /mydata/nginx/conf:/etc/nginx #配置文件目录挂载
+      # - /mydata/nginx/html:/usr/share/nginx/html #静态资源根目录挂载
+      # - /mydata/nginx/logs:/var/log/nginx #日志文件目录挂载
     ports:
       - 80:80
   rabbitmq:
